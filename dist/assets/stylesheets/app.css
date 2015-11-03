@@ -1,0 +1,110 @@
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.transition {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+/*======================================================================
+      Global
+  ======================================================================*/
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-backface-visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
+  /* For some Androids */
+  outline: none;
+}
+
+html {
+  height: 100%;
+  font-family: "microsoft yahei", Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0  auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+p,
+a,
+button,
+span {
+  -webkit-font-smoothing: antialiased;
+}
+
+input {
+  outline: none;
+}
+
+/* the class "content" is used for flexible plugin */
+
+.content {
+  display: block;
+  min-width: 320px;
+  margin: 0 auto;
+  max-width: 750px;
+}
+
+/* swiper */
+
+.swiper-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  height: 100%;
+  font-size: 58px;
+  background: pink;
+}
+
+.swiper-slide .div1 {
+  width: 2.66667rem;
+  background: darkgray;
+}
+
+.swiper-slide .div2 {
+  width: 1.33333rem;
+  background: #007aff;
+}
+
+/* scene */
+
+.scene {
+  -webkit-perspective: 3000;
+  perspective: 3000;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+#btn {
+  font-size: 200px;
+}
+
+/*======================================================================
+      Responsive
+  ======================================================================*/
