@@ -42,6 +42,7 @@ var filePath = {
 var concatOrder = {
     css: [
         filePath.cssCompiled + 'base.css',
+        filePath.cssCompiled + 'swiper.min.css',
         filePath.cssCompiled + 'main.css'
     ],
 

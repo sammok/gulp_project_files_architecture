@@ -37,6 +37,7 @@ assets/
 			maps/
 |-- stylesheets/
             base.scss       # reset styles, useful styles
+            swiper.min.css  # swiper.js styles
             main.scss       # main styles
             ----------------------------------------------
             after compiled (auto create addition below):
@@ -102,6 +103,7 @@ var filePath = {
 var concatOrder = {
     css: [
         filePath.cssCompiled + 'base.css',
+        filePath.cssCompiled + 'swiper.min.css',
         filePath.cssCompiled + 'main.css'
     ],
 
