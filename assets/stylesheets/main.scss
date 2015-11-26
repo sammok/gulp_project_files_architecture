@@ -6,8 +6,6 @@
 * {
   padding: 0;
   margin: 0;
-  -webkit-backface-visibility: hidden;
-  -webkit-tap-highlight-color: transparent; /* For some Androids */
   outline: none;
 }
 
@@ -38,7 +36,34 @@ input {
   outline: none;
 }
 
-$page-width-rem : 75;
+.pa { position: absolute; }
+
+/* psd width `divided` 10 */
+$page-base-rem : 75; /* 750/10=75 */
+
+@mixin calWidth ($value) {
+  width: $value*1rem / $page-base-rem;
+}
+
+@mixin calHeight ($value) {
+  height: $value*1rem / $page-base-rem;
+}
+
+@mixin calTop ($value) {
+  top: $value*1rem / $page-base-rem;
+}
+
+@mixin calBottom ($value) {
+  bottom: $value*1rem / $page-base-rem;
+}
+
+@mixin calLeft ($value) {
+  left: $value*1rem / $page-base-rem;
+}
+
+@mixin calRight ($value) {
+  right: $value*1rem / $page-base-rem;
+}
 
 
 /* the class "content" is used for flexible plugin */
@@ -64,16 +89,7 @@ $page-width-rem : 75;
 .swiper-slide{
   height: 100%;
   font-size: 58px;
-  background: pink;
-
-  .div1{
-    width: 200rem / $page-width-rem;
-    background: darkgray;
-  }
-  .div2{
-    width: 100rem / $page-width-rem;
-    background: #007aff;
-  }
+  background: #ff9900;
 }
 
 /* scene */
@@ -82,7 +98,33 @@ $page-width-rem : 75;
   backface-visibility: hidden;
 }
 
-#btn { font-size: 200px; }
+/* test code */
+.scene {
+  display : flex;
+
+  aside {
+    flex: 1 1 auto;
+    /* 300px width in psd,
+       750px width total,
+       auto responsive using flexible.js,
+       set total width in $page-base-rem
+    */
+    @include calWidth(300);
+    background: pink;
+  }
+
+  main {
+    flex: 1 1 auto;
+    /* 450px width in psd,
+       750px width total,
+       auto responsive using flexible.js,
+       set total width in $page-base-rem
+    */
+    @include calWidth(450);
+    background: orange;
+  }
+}
+
 
 /*======================================================================
       Responsive

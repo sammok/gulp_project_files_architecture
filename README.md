@@ -1,20 +1,24 @@
 ## gulp project file architecture
-A ``Files Architecture`` for normal-sized project using ``gulp``. 
+A ``Files Architecture`` for common project using ``gulp``. 
 
 Providings ``watching files``(auto sync pages on different devices when developing) and ``deploy`` tasks.
 
-Compiled sass, minified css, js, and automatically injecting css, js files to html pages.
+Compiled sass, concate and minify for ``css`` ``js`` to be single file, 
+
+And automatically injecting css, js files into html pages.
+
+Preset responsive lib, and swiper.js for mobile projects
 
 ## How to use
 **Step by step:**<br/> 
 
 ``$ npm install`` download the gulp dependencies<br/>
 
-``$ gulp help`` to see the main task commands
+``$ gulp help`` to see the task commands
 
-``$ gulp develop`` watch files and automatically starting the ``browsersync``
+``$ gulp develop`` watch files and automatically run the ``browsersync``
 
-``$ gulp deploy`` create directory ``dist/`` and deploy files
+``$ gulp deploy`` create directory ``dist/`` in the root path and deploy files
 
 ## Introcution
 **File structures**
@@ -22,11 +26,22 @@ Compiled sass, minified css, js, and automatically injecting css, js files to ht
 ```
 assets/
 |-- images/			
-|-- scripts/			
-		compiled/		# concated and minified scripts
+|-- scripts/
+	        main.js         # main js
+	        flexible.js		# responsive lib using rem, https://github.com/amfe/lib-flexible
+	        swiper.js		# popular slider plugin, good supported for mobile and PC pages.  http://www.idangero.us/swiper
+	        ----------------------------------------------
+            after compiled (auto create addition below):
+            app.js          # concated
+            app.min.js
 			maps/
-|-- stylesheets/	
-		compiled/		# compiled and minified css
+|-- stylesheets/
+            base.scss       # reset styles, useful styles
+            main.scss       # main styles
+            ----------------------------------------------
+            after compiled (auto create addition below):
+			app.css         # concated
+			app.min.css
 			maps/
 dist/	
 	assets/
@@ -47,7 +62,15 @@ package.json
 README.md		
 ```
 
-## Options
+## Configurations
+**Change the page psd width for [flexible.js](https://github.com/amfe/lib-flexible) plugin  in ``assets/stylesheets/main.scss``**
+
+    /* psd width `divided` 10, if your psd width is 750, so set ``$page-base-rem`` to 75 */
+    /* main.scss provided it */
+    $page-base-rem: 75; 
+
+---
+
 **You can customize the files structure in the file ``gulpfiles.js``**
 
 Below are predefined configurations
@@ -63,19 +86,19 @@ var filePath = {
     html: './',
     htmlDist: 'dist/',
 
-    css: 'assets/stylesheets/',
-    cssCompiled: 'assets/stylesheets/compiled/',
-    cssDist: 'dist/assets/stylesheets/',
+    css: 'assets/stylesheets/',             # sass files path
+    cssCompiled: 'assets/stylesheets/',              # compiled sass path, must be same with filePath.css in this version
+    cssDist: 'dist/assets/stylesheets/',    # dist path
 
-    js: 'assets/scripts/',
-    jsCompiled: 'assets/scripts/compiled/',
-    jsDist: 'dist/assets/scripts/',
+    js: 'assets/scripts/',                  # js files path
+    jsCompiled: 'assets/scripts/',                # compiled js path
+    jsDist: 'dist/assets/scripts/',         # dist path
 
     img: 'assets/images',
     imgDist: 'dist/assets/images'
 };
 
-//  put css files in order, used for concat process
+//  put files in order, used for concat process
 var concatOrder = {
     css: [
         filePath.cssCompiled + 'base.css',
@@ -91,4 +114,6 @@ var concatOrder = {
     ]
 };
 ```
-				
+
+
+

@@ -27,11 +27,11 @@ var filePath = {
     htmlDist: 'dist/',
 
     css: 'assets/stylesheets/',
-    cssCompiled: 'assets/stylesheets/compiled/',
+    cssCompiled: 'assets/stylesheets/',
     cssDist: 'dist/assets/stylesheets/',
 
     js: 'assets/scripts/',
-    jsCompiled: 'assets/scripts/compiled/',
+    jsCompiled: 'assets/scripts/',
     jsDist: 'dist/assets/scripts/',
 
     img: 'assets/images',
@@ -78,8 +78,8 @@ gulp.task('watch', function() {
         server: "./"
     });
 
-    gulp.watch(['assets/stylesheets/**'], ['sass']);
-    gulp.watch(['assets/**', '*.html', '**/*.html'])
+    gulp.watch(['assets/stylesheets/**/*.scss'], ['sass']);
+    gulp.watch(['assets/stylesheets/**/*.css', 'assets/stylesheets/images/', '*.html', '**/*.html'])
         .on('change', browserSync.reload);
 });
 
@@ -110,7 +110,7 @@ gulp.task('copyCss', function () {
 
 //  #desc: Js -> Dist
 gulp.task('copyScripts', function () {
-    return gulp.src([filePath.jsCompiled + '*.js', filePath.jsCompiled + filePath.maps + '*'], { base: filePath.jsCompiled })
+    return gulp.src([filePath.jsCompiled + 'app.js', filePath.jsCompiled + 'app.min.js', filePath.jsCompiled + filePath.maps + '*'], { base: filePath.jsCompiled })
         .pipe(gulp.dest(filePath.jsDist));
 });
 

@@ -1,12 +1,22 @@
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.transition {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
 /*======================================================================
       Global
   ======================================================================*/
+
 * {
   padding: 0;
   margin: 0;
-  -webkit-backface-visibility: hidden;
-  -webkit-tap-highlight-color: transparent;
-  /* For some Androids */
   outline: none;
 }
 
@@ -29,7 +39,10 @@ li {
   list-style: none;
 }
 
-p, a, button, span {
+p,
+a,
+button,
+span {
   -webkit-font-smoothing: antialiased;
 }
 
@@ -37,7 +50,16 @@ input {
   outline: none;
 }
 
+.pa {
+  position: absolute;
+}
+
+/* psd width `divided` 10 */
+
+/* 750/10=75 */
+
 /* the class "content" is used for flexible plugin */
+
 .content {
   display: block;
   min-width: 320px;
@@ -46,6 +68,7 @@ input {
 }
 
 /* swiper */
+
 .swiper-container {
   position: relative;
   width: 100%;
@@ -61,27 +84,53 @@ input {
 .swiper-slide {
   height: 100%;
   font-size: 58px;
-  background: pink;
-}
-.swiper-slide .div1 {
-  width: 2.66667rem;
-  background: darkgray;
-}
-.swiper-slide .div2 {
-  width: 1.33333rem;
-  background: #007aff;
+  background: #ff9900;
 }
 
 /* scene */
+
 .scene {
   -webkit-perspective: 3000;
-          perspective: 3000;
+  perspective: 3000;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
-#btn {
-  font-size: 200px;
+/* test code */
+
+.scene {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.scene aside {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  /* 300px width in psd,
+     750px width total,
+     auto responsive using flexible.js,
+     set total width in $page-base-rem
+  */
+  width: 4rem;
+  background: pink;
+}
+
+.scene main {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  /* 450px width in psd,
+     750px width total,
+     auto responsive using flexible.js,
+     set total width in $page-base-rem
+  */
+  width: 6rem;
+  background: orange;
 }
 
 /*======================================================================
