@@ -20,7 +20,7 @@ Preset responsive lib, and swiper.js for mobile projects
 
 ``$ gulp deploy`` create directory ``dist/`` in the root path and deploy files
 
-## Introcution
+## Introdution
 **File structures**
 
 ```
