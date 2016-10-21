@@ -15,8 +15,6 @@
     "gulp-autoprefixer": "*",
     "gulp-concat": "*",
     "gulp-concat-css": "*",
-    "gulp-inject": "*",
-    "gulp-jshint": "*",
     "gulp-minify-css": "*",
     "gulp-notify": "*",
     "gulp-rename": "*",

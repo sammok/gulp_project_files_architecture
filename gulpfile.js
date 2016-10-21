@@ -11,7 +11,6 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     concatCss = require('gulp-concat-css'),
 
-    jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
     concatJs = require('gulp-concat'),
     notify = require('gulp-notify');
@@ -173,13 +172,4 @@ gulp.task('scripts', function() {
         .pipe(sourcemaps.write(filePath.maps))
         .pipe(gulp.dest(filePath.jsCompiled))
         .pipe(notify({ message: 'Scripts task complete' }));
-});
-
-//  #desc: Jshint -> Report on terminal
-gulp.task('jshint', function () {
-    gulp.src([
-        'main.js'
-    ], { base: filePath.js })
-        .pipe(jshint('.jshintrc'))
-        .pipe(jshint.reporter('default'))
 });

@@ -78,13 +78,11 @@ input {
 /* test code */
 .scene {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 .scene aside {
   -webkit-box-flex: 1;
-  -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   /* 300px width in psd,
@@ -97,7 +95,6 @@ input {
 }
 .scene main {
   -webkit-box-flex: 1;
-  -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   /* 450px width in psd,
